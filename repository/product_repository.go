@@ -7,6 +7,15 @@ import (
 	"gorm.io/gorm/clause"
 )
 
+//go:generate mockery --name IProductRepository
+type IProductRepository interface {
+	Add(product model.Product) (model.Product, error)
+	Get() ([]model.Product, error)
+	GetByUserId(userId string) ([]model.Product, error)
+	GetOne(id string) (model.Product, error)
+	UpdateOne(updateProduct model.Product, id string) (model.Product, error)
+	DeleteOne(deleteProduct model.Product, id string) error
+}
 type ProductRepository struct {
 	db *gorm.DB
 }

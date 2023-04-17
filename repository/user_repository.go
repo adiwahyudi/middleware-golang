@@ -6,12 +6,18 @@ import (
 	"gorm.io/gorm"
 )
 
+//go:generate mockery --name IUserRepository
+
+type IUserRepository interface {
+	Save(user model.User) (model.User, error)
+	GetByEmail(email string) (model.User, error)
+}
 type UserRepository struct {
 	db *gorm.DB
 }
 
-func NewUserRepository(db *gorm.DB) UserRepository {
-	return UserRepository{
+func NewUserRepository(db *gorm.DB) *UserRepository {
+	return &UserRepository{
 		db: db,
 	}
 }

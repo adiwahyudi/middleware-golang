@@ -14,7 +14,7 @@ const (
 	port     = 5432
 	user     = "postgres"
 	password = "adi"
-	dbname   = "postgres"
+	dbname   = "h8-middleware-unittest"
 )
 
 var (

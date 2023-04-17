@@ -42,6 +42,7 @@ func (pc *ProductController) CreateProduct(ctx *gin.Context) {
 		})
 		return
 	}
+
 	ctx.JSON(http.StatusCreated, res)
 	return
 

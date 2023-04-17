@@ -13,8 +13,7 @@ func main() {
 	database.StartDB()
 	db := database.GetDB()
 
-	routes.UserRoute(g, db)
-	routes.ProductRoute(g, db)
+	routes.Routes(g, db)
 
 	g.Run(":8080")
 }

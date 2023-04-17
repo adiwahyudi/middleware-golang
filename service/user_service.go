@@ -12,11 +12,11 @@ const (
 )
 
 type UserService struct {
-	UserRepository repository.UserRepository
+	UserRepository repository.IUserRepository
 }
 
-func NewUserService(userRepository repository.UserRepository) UserService {
-	return UserService{
+func NewUserService(userRepository repository.IUserRepository) *UserService {
+	return &UserService{
 		UserRepository: userRepository,
 	}
 }
